@@ -25,8 +25,8 @@ contract task1 {
     }
 
 
-   function getStudentDetails(address studentID) public view returns(Student memory){
-       return addressToStundent[studentID];
+   function getStudentDetails(address _studentID) public view returns(Student memory){
+       return addressToStundent[_studentID];
    }
 
 
