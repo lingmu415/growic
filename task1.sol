@@ -34,7 +34,12 @@ contract task1 {
        //cannot create with a same address
        require(!addressToStundent[_studentID].IsRegistered,"already registered");
        //Create a new Student
-       Student memory _student = Student(true, _studentID, _percentage, _totalMark);
+       Student memory _student = Student({
+        IsRegistered: true,
+        studentID: _studentID,
+        percentage: _percentage,
+        totalMark: _totalMark
+        });
        addressToStundent[_studentID] = _student;
    }
 }
