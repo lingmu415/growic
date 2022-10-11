@@ -9,8 +9,8 @@ contract task2 {
         addrToAmount[msg.sender] = _amount;
     }
 
-    function checkBalance(address _addr) public view returns(uint256){
-        return addrToAmount[_addr];
+    function checkBalance() public view returns(uint256){
+        return addrToAmount[msg.sender];
     }
 
 }
