@@ -6,6 +6,7 @@ contract task5 {
     error AmountToSmall();
     error NoBalance();
 
+    // Set events
     event FundsDeposited(address user, uint256 amount);
     event ProfileUpdated(address user);
 
@@ -22,13 +23,11 @@ contract task5 {
 
     address payable owner;
 
-    //create a modifier that only allows the owner of the contract to withdraw the funds.
     modifier onlyOwner(){
         require(msg.sender == owner, "you are not an owner");
         _;
     }
 
-    //Create a modifier that accepts a value(uint256 _amount)
     modifier moreThanFee(uint256 _amount){
         if(_amount < Fee){
             revert AmountToSmall();
@@ -36,7 +35,6 @@ contract task5 {
         _;
     }
 
-    //create a modifier that only allows users that have deposited
     modifier hasBalance(){
         if(balanceOf[msg.sender] == 0){
             revert NoBalance();
